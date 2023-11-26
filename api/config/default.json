@@ -1,0 +1,42 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "./public/",
+  "origins": [
+    "http://localhost:3030"
+  ],
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "<MongoDB Server URI>",
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "en0nbCbBGOxMQxZ/jj9HwSpclwBo0jKB",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "origins": ["http://localhost:3030"],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "google": {
+        "key": "<Client ID>",
+        "secret": "<Client secret>",
+        "scope": ["email", "profile"]
+      }
+    }
+  }
+}
